@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.BatchSize;
+import org.springframework.boot.convert.DataSizeUnit;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
@@ -18,21 +19,20 @@ public class PersonDTO {
 
     private Long id;
 
-    @NotEmpty
-    @Size(min = 2 , max = 100)
+    @NotNull
+    @BatchSize(size = 100 )
     private String firstName;
 
-    @NotEmpty
-    @Size(min = 2 , max = 100)
+    @NotNull
+    @BatchSize(size = 100)
     private String lastName;
 
-    @NotEmpty
-    @CPF
+    @NotNull
     private String cpf;
 
     private String birthDate;
 
-    @Valid
-    @NotEmpty
+
+    @NotNull
     private List<PhoneDTO> phones;
 }

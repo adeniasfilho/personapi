@@ -22,7 +22,7 @@ public class PhoneDTO {
     @Enumerated(EnumType.STRING)
     private PhoneType type;
 
-    @NotEmpty
-    @Size(min = 13, max = 14)
+    @NotNull
+    @BatchSize(size = 14)
     private String number;
 }
